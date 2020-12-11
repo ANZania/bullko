@@ -10,10 +10,10 @@ const ItemListStyled = styled.div``;
 
 // COMPONENT
 
-
-export const ItemList = () => (
+const ItemList = () => (
     <ItemListStyled>
 
     </ItemListStyled>
 );
 
+export default ItemList;
