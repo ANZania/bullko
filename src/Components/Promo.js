@@ -43,7 +43,7 @@ const MenuText = styled.h2`
 
 
 export const Promo = () => (
-    <PromoStyled>
+    <PromoStyled id="0">
         <PromoText>
             Доставка бургеров в Санкт-Петербурге
         </PromoText>

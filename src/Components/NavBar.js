@@ -16,7 +16,7 @@ const NavBarStyled = styled.header`
     position: fixed;
 `;
 
-const Logo = styled.div`
+const Logo = styled.a`
     padding: 20px 50px;
     cursor: pointer;  
 `;
@@ -53,7 +53,7 @@ const LinkImg = styled.div`
 
 export const NavBar = () => (
     <NavBarStyled>
-        <Logo>
+        <Logo href="#0">
             <img src={logoImg} alt="logo"/>
         </Logo>
         <NavBarLinks>
