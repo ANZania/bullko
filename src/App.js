@@ -7,12 +7,15 @@ import { GlobalStyle } from './Components/GlobalStyle';
 
 
 function App() {
+
+  const [openItem, setOpenItem] = React.useState('');
+
   return (
     <>
       <GlobalStyle/>
       <NavBar/>
       <Promo/>
-      <Menu/>
+      <Menu setOpenItem={setOpenItem}/>
       <Footer/>
     </>
   );

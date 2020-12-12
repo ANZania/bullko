@@ -31,15 +31,21 @@ const ItemTitle = styled.h3`
 // COMPONENT
 
 
-export const Menu = () => (
+export const Menu = ({ setOpenItem }) => (
     <MenuStyled>
         <ItemBlock>
             <ItemTitle>Бургеры</ItemTitle>
-            <ItemList itemList={DBMenu.burger} />
+            <ItemList 
+                itemList={DBMenu.burger}
+                setOpenItem={setOpenItem} />
             <ItemTitle>Напитки</ItemTitle>
-            <ItemList itemList={DBMenu.drinks} />
+            <ItemList 
+                itemList={DBMenu.drinks}
+                setOpenItem={setOpenItem} />
             <ItemTitle>Закуски</ItemTitle>
-            <ItemList itemList={DBMenu.snacks} />
+            <ItemList 
+                itemList={DBMenu.snacks}
+                setOpenItem={setOpenItem} />
         </ItemBlock>
     </MenuStyled>
 );

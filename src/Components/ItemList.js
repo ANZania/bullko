@@ -50,12 +50,13 @@ const ItemPrice = styled.p`
 
 // COMPONENT
 
-export const ItemList = ({ itemList }) => (
+export const ItemList = ({ itemList, setOpenItem }) => (
     <ItemListStyled>
         {itemList.map( item => (
             <Item 
                 key={item.id}
-                img={item.img}>
+                img={item.img}
+                onClick={() => setOpenItem(item.name)}>
                 <ItemName>{item.name}</ItemName>
                 <ItemPrice>{item.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}</ItemPrice>
 
