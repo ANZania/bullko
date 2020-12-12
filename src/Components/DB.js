@@ -1,8 +1,8 @@
-{
+const DBMenu = {
     "burger": [
         {
             "name": "Двойной Джо",
-            "img": "./Burgers/burger1.png",
+            "img": "/Menu/Burgers/burger1.png",
             "id": 1,
             "price": 319,
             "toppings": [
@@ -17,7 +17,7 @@
         },
         {
             "name": "Зевс",
-            "img": "./Burgers/burger2.png",
+            "img": "/Menu/Burgers/burger2.png",
             "id": 2,
             "price": 249,
             "toppings": [
@@ -30,7 +30,7 @@
         },
         {
             "name": "BBQ",
-            "img": "./Burgers/burger3.png",
+            "img": "/Menu/Burgers/burger3.png",
             "id": 3,
             "price": 329,
             "toppings": [
@@ -42,7 +42,7 @@
         },
         {
             "name": "Сердце врага",
-            "img": "./Burgers/burger4.png",
+            "img": "/Menu/Burgers/burger4.png",
             "id": 4,
             "price": 479,
             "toppings": [
@@ -54,7 +54,7 @@
         },
         {
             "name": "Детройт",
-            "img": "./Burgers/burger5.png",
+            "img": "/Menu/Burgers/burger5.png",
             "id": 5,
             "price": 237,
             "toppings": [
@@ -67,7 +67,7 @@
         },
         {
             "name": "Дедлайн",
-            "img": "./Burgers/burger6.png",
+            "img": "/Menu/Burgers/burger6.png",
             "id": 6,
             "price": 239,
             "toppings": [
@@ -80,7 +80,7 @@
         },
         {
             "name": "Классик",
-            "img": "./Burgers/burger7.png",
+            "img": "/Menu/Burgers/burger7.png",
             "id": 6,
             "price": 299,
             "toppings": [
@@ -93,7 +93,7 @@
         },
         {
             "name": "Мексиканец",
-            "img": "./Burgers/burger8.png",
+            "img": "/Menu/Burgers/burger8.png",
             "id": 6,
             "price": 315,
             "toppings": [
@@ -106,7 +106,7 @@
         },
         {
             "name": "Вега",
-            "img": "./Burgers/burger9.png",
+            "img": "/Menu/Burgers/burger9.png",
             "id": 6,
             "price": 199,
             "toppings": [
@@ -122,25 +122,25 @@
     "drinks": [
         {
             "name": "Капучино",
-            "img": "./Drinks/drink2.png",
+            "img": "/Menu/Drinks/drink2.png",
             "id": 1,
             "price": 239
         },
         {
             "name": "Раф",
-            "img": "./Drinks/drink3.png",
+            "img": "/Menu/Drinks/drink3.png",
             "id": 2,
             "price": 239
         },
         {
-            "name": "Мятный милкшейк",
-            "img": "./Drinks/drink1.png",
+            "name": "Клубничный милкшейк",
+            "img": "/Menu/Drinks/drink1.png",
             "id": 3,
             "price": 187
         },
         {
             "name": "Чай",
-            "img": "./Drinks/drink5.png",
+            "img": "/Menu/Drinks/drink5.png",
             "id": 4,
             "price": 56,
             "choices": [
@@ -150,14 +150,14 @@
             ]
         },
         {
-            "name": "Клубничный милкшейк",
-            "img": "./Drinks/drink4.png",
+            "name": "Мятный милкшейк",
+            "img": "/Menu/Drinks/drink4.png",
             "id": 5,
             "price": 187
         },
         {
             "name": "Coca-cola",
-            "img": "./Drinks/drink6.png",
+            "img": "/Menu/Drinks/drink6.png",
             "id": 6,
             "price": 80
         }
@@ -165,21 +165,23 @@
     "snacks": [
         {
             "name": "Картофель фри",
-            "img": "./Snacks/snack1.png",
+            "img": "/Menu/Snacks/snack1.png",
             "id": 1,
             "price": 87
         },
         {
             "name": "Наггетсы",
-            "img": "./Snacks/snack2.png",
+            "img": "/Menu/Snacks/snack2.png",
             "id": 2,
             "price": 157
         },
         {
             "name": "Картофель по-деревенски",
-            "img": "./Snacks/snack3.png",
+            "img": "/Menu/Snacks/snack3.png",
             "id": 3,
             "price": 87
         }
     ]
-}
+};
+
+export default DBMenu;
