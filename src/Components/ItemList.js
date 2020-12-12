@@ -56,7 +56,7 @@ export const ItemList = ({ itemList, setOpenItem }) => (
             <Item 
                 key={item.id}
                 img={item.img}
-                onClick={() => setOpenItem(item.name)}>
+                onClick={() => setOpenItem(item)}>
                 <ItemName>{item.name}</ItemName>
                 <ItemPrice>{item.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}</ItemPrice>
 
