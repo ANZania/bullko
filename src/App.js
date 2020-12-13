@@ -4,6 +4,7 @@ import { Promo } from './Components/Promo';
 import { Menu } from './Components/Menu';
 import { Footer } from './Components/Footer';
 import { ModalItem } from './Components/ModalItem';
+import { Cart } from './Components/Cart';
 import { GlobalStyle } from './Components/GlobalStyle';
 
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <GlobalStyle/>
+      <Cart/>
       <ModalItem openItem={openItem} setOpenItem={setOpenItem}/>
       <NavBar/>
       <Promo/>

@@ -1,5 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import { fadeIn, fadeOut } from 'react-animations';
+import styled, { keyframes } from 'styled-components';
+
+const Animation = keyframes`${fadeIn}`;
 
 const Overlay = styled.div`
     position: fixed;
@@ -12,6 +15,7 @@ const Overlay = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: 0.5s ${Animation};
 `;
 
 const Modal = styled.div`
@@ -19,6 +23,7 @@ const Modal = styled.div`
     height: 600px; 
     background-color: #ffffff;
     border-radius: 5px;
+    overflow: hidden;
 `;
 
 const Banner = styled.div`
@@ -27,8 +32,8 @@ const Banner = styled.div`
     background-image: url(${({img}) => img});
     background-size: cover;
     background-position: center;
-
 `;
+
 
 export const ModalItem = ({ openItem, setOpenItem }) => {
 
