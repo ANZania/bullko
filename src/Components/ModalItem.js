@@ -34,6 +34,39 @@ const Banner = styled.div`
     background-position: center;
 `;
 
+const HeadContent = styled.section`
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const MainText = styled.h2`
+    padding-left: 30px;
+    font-weight: 400;
+    font-size: 30px;
+`;
+
+const Price = styled.h2`
+    padding-right: 30px;
+    font-weight: 400;
+    font-size: 30px;
+`;
+
+const Content = styled.section`
+    padding: 0px 30px;
+    height: 150px;
+    overflow: hidden;
+`;
+
+const Description = styled.p`
+    font-weight: 300;
+    font-size: 18px;
+`;
+
+const OptionalItems = styled.ul``;
+
+const Amount = styled.input``;
 
 export const ModalItem = ({ openItem, setOpenItem }) => {
 
@@ -50,6 +83,19 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
             <Overlay id="overlay" onClick={closeModal}>
                 <Modal>
                     <Banner img={openItem.img}/>
+                    <HeadContent>
+                        <MainText>
+                            {openItem.name}
+                        </MainText>
+                        <Price>
+                            {openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}
+                        </Price>
+                    </HeadContent>
+                    <Content>
+                        <Description>
+                        {openItem.description}
+                        </Description>
+                    </Content>
                 </Modal>
             </Overlay>
         )

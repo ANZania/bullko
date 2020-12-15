@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <GlobalStyle/>
-      <Cart/>
+      {/* <Cart/> */}
       <ModalItem openItem={openItem} setOpenItem={setOpenItem}/>
       <NavBar/>
       <Promo/>
