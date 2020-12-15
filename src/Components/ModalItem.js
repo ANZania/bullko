@@ -1,6 +1,7 @@
 import React from 'react';
 import { fadeIn, fadeOut } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
+import { ButtonAddItem } from '../Components/ButtonAddItem';
 
 const Animation = keyframes`${fadeIn}`;
 
@@ -53,15 +54,21 @@ const Price = styled.h2`
     font-size: 30px;
 `;
 
-const Content = styled.section`
+const DescriptionContent = styled.section`
     padding: 0px 30px;
-    height: 150px;
+    height: 100px;
     overflow: hidden;
 `;
 
 const Description = styled.p`
     font-weight: 300;
     font-size: 18px;
+`;
+
+const OptionContent = styled.section`
+    padding: 0px 30px;
+    height: auto;
+    overflow: hidden;
 `;
 
 const OptionalItems = styled.ul``;
@@ -91,11 +98,21 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
                             {openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}
                         </Price>
                     </HeadContent>
-                    <Content>
+                    <DescriptionContent>
                         <Description>
                         {openItem.description}
                         </Description>
-                    </Content>
+                    </DescriptionContent>
+                    <OptionContent>
+                        <OptionalItems>
+                            
+                        </OptionalItems>
+                    </OptionContent>
+                    <ButtonAddItem>
+                        <span>
+                        Добавить в корзину
+                        </span>
+                    </ButtonAddItem>
                 </Modal>
             </Overlay>
         )
