@@ -78,7 +78,7 @@ const Amount = styled.input``;
 export const ModalItem = ({ openItem, setOpenItem }) => {
 
     const closeModal = (event) => {
-        if (event.target.id === "overlay") {
+        if ((event.target.id === "overlay")||(event.target.closest(".button-add"))) {
             setOpenItem(null);
         }
     }
@@ -108,10 +108,8 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
                             
                         </OptionalItems>
                     </OptionContent>
-                    <ButtonAddItem>
-                        <span>
+                    <ButtonAddItem className="button-add" onClick={closeModal}>
                         Добавить в корзину
-                        </span>
                     </ButtonAddItem>
                 </Modal>
             </Overlay>
