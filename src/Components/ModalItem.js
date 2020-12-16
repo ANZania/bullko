@@ -1,9 +1,9 @@
 import React from 'react';
-import { fadeIn, fadeOut } from 'react-animations';
+import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import { ButtonAddItem } from '../Components/ButtonAddItem';
 
-const Animation = keyframes`${fadeIn}`;
+const AnimationFadeIn = keyframes`${fadeIn}`;
 
 const Overlay = styled.div`
     position: fixed;
@@ -16,7 +16,7 @@ const Overlay = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: 0.5s ${Animation};
+    animation: 0.5s ${AnimationFadeIn};
 `;
 
 const Modal = styled.div`
@@ -78,10 +78,14 @@ const Amount = styled.input``;
 export const ModalItem = ({ openItem, setOpenItem }) => {
 
     const closeModal = (event) => {
-        if ((event.target.id === "overlay")||(event.target.closest(".button-add"))) {
+        if (event.target.id === "overlay") {
             setOpenItem(null);
+        } else if (event.target.closest(".button-add")) {
+            const timer = setTimeout(() => {
+                setOpenItem(null);
+            }, 200);
         }
-    }
+    };
 
     if (!openItem) {
         return null;
