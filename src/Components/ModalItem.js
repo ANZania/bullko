@@ -73,7 +73,13 @@ const OptionContent = styled.section`
 
 const OptionalItems = styled.ul``;
 
-const Amount = styled.input``;
+const Footer = styled.section`
+    display: flex;
+    padding: 0 30px;
+    height: auto;
+    justify-content: flex-end;
+    align-items: center;
+`;
 
 export const ModalItem = ({ openItem, setOpenItem }) => {
 
@@ -112,9 +118,11 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
                             
                         </OptionalItems>
                     </OptionContent>
-                    <ButtonAddItem className="button-add" onClick={closeModal}>
-                        Добавить в корзину
-                    </ButtonAddItem>
+                    <Footer>
+                        <ButtonAddItem className="button-add" onClick={closeModal}>
+                            Добавить в корзину
+                        </ButtonAddItem>
+                    </Footer>
                 </Modal>
             </Overlay>
         )

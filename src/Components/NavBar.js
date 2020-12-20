@@ -47,12 +47,20 @@ const LinkImg = styled.div`
     padding: 0px 10px;
 `;
  
+const listenScrollEvent = e => {
+    
+    if (window.scrollY > 400) {
+        NavBarStyled.componentStyle.rules += `background-color: 'yellow';`;
+    } else {
+        NavBarStyled.style = {backgroundColor: 'yellow'};
+    }
+}
 
 // COMPONENT
 
 
-export const NavBar = () => (
-    <NavBarStyled>
+export const NavBar = ({ scrollPosition, setScrollPosition }) => (
+    <NavBarStyled onClick={() => listenScrollEvent()}>
         <Logo href="#0">
             <img src={logoImg} alt="logo"/>
         </Logo>

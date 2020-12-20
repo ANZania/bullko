@@ -11,13 +11,14 @@ import { GlobalStyle } from './Components/GlobalStyle';
 function App() {
 
   const [openItem, setOpenItem] = React.useState(null);
+  const [scrollPosition, setScrollPosition] = React.useState(null);
 
   return (
     <>
       <GlobalStyle/>
       {/* <Cart/> */}
       <ModalItem openItem={openItem} setOpenItem={setOpenItem}/>
-      <NavBar/>
+      <NavBar scrollPosition={scrollPosition} setScrollPosition={setScrollPosition}/>
       <Promo/>
       <Menu setOpenItem={setOpenItem}/>
       <Footer/>
