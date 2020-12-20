@@ -84,7 +84,7 @@ const Footer = styled.section`
 export const ModalItem = ({ openItem, setOpenItem }) => {
 
     const closeModal = (event) => {
-        if (event.target.id === "overlay") {
+        if (event.target.id === "ModalItemOverlay") {
             setOpenItem(null);
         } else if (event.target.closest(".button-add")) {
             const timer = setTimeout(() => {
@@ -97,7 +97,7 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
         return null;
     } else {
         return (
-            <Overlay id="overlay" onClick={closeModal}>
+            <Overlay id="ModalItemOverlay" onClick={closeModal}>
                 <Modal>
                     <Banner img={openItem.img}/>
                     <HeadContent>

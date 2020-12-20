@@ -26,11 +26,26 @@ const Modal = styled.div`
 `;
 
 
-export const Cart = () => {
-    return (
-        <Overlay id="overlay" >
-            <Modal>
-            </Modal>
-        </Overlay>
-    )
+export const Cart = ({  isCartOpened, setCartOpened }) => {
+
+    const closeModal = (event) => {
+        if (event.target.id === "CartOverlay") {
+            setCartOpened(null);
+        } else if (event.target.closest(".button-add")) {
+            const timer = setTimeout(() => {
+                setCartOpened(null);
+            }, 200);
+        }
+    };
+
+    if (!isCartOpened) {
+        return null;
+    } else {
+        return (
+            <Overlay id="CartOverlay" onClick={closeModal} >
+                <Modal>
+                </Modal>
+            </Overlay>
+        )
+    };
 };

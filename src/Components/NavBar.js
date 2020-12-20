@@ -59,7 +59,7 @@ const listenScrollEvent = e => {
 // COMPONENT
 
 
-export const NavBar = ({ scrollPosition, setScrollPosition }) => (
+export const NavBar = ({ scrollPosition, setScrollPosition, setCartOpened }) => (
     <NavBarStyled onClick={() => listenScrollEvent()}>
         <Logo href="#0">
             <img src={logoImg} alt="logo"/>
@@ -71,7 +71,9 @@ export const NavBar = ({ scrollPosition, setScrollPosition }) => (
                 </LinkImg>
                 <p className="NavBarText enterLink"><a>Войти</a></p>
             </LinkBlock>
-            <LinkBlock> 
+            <LinkBlock onClick={
+                () => setCartOpened('cart')
+            }> 
                 <LinkImg>
                     <img src={cartImg} alt="cart icon"/>
                 </LinkImg>     
