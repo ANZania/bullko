@@ -64,10 +64,17 @@ const Footer = styled.section`
     align-items: center;
 `;
 
+const EmptyOrderList = styled.p`
+    font-weight: 300;
+    text-align: center;
+    width: 100%;
+    padding: 50px 0px;
+`;
+
 const Total = styled.div` 
 `;
 
-export const Cart = ({  isCartOpened, setCartOpened }) => {
+export const Cart = ({  isCartOpened, setCartOpened, orders }) => {
 
     const closeModal = (event) => {
         if (event.target.id === "CartOverlay") {
@@ -89,15 +96,14 @@ export const Cart = ({  isCartOpened, setCartOpened }) => {
                         <p>Ваш заказ</p>
                     </HeadContent>
                     <OrderContent>
-                        <OrderList>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                        </OrderList>
+                        {orders.length ? 
+                            <OrderList>
+                                { orders.map( order => <OrderListItem order={order}/> ) }
+                            </OrderList> :
+                            <EmptyOrderList>
+                                Список заказов пуст
+                            </EmptyOrderList>}
+        
                         <Total>
                             <span>Итого: </span>
                             <span>5 555 р</span>

@@ -38,11 +38,11 @@ const DeleteIcon = styled.button`
     }
 `;
 
-export const OrderListItem = () => (
+export const OrderListItem = ({ order }) => (
     <OrderListItemBlock>
-        <span>GBurger</span>
+        <span>{ order.name }</span>
         <span>2</span>
-        <span>450 p</span>
+        <span>{ order.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'}) }</span>
         <DeleteIcon/>
     </OrderListItemBlock>
 );

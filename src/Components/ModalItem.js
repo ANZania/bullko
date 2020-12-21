@@ -81,7 +81,7 @@ const Footer = styled.section`
     align-items: center;
 `;
 
-export const ModalItem = ({ openItem, setOpenItem }) => {
+export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
     const closeModal = (event) => {
         if (event.target.id === "ModalItemOverlay") {
@@ -93,38 +93,43 @@ export const ModalItem = ({ openItem, setOpenItem }) => {
         }
     };
 
-    if (!openItem) {
-        return null;
-    } else {
-        return (
-            <Overlay id="ModalItemOverlay" onClick={closeModal}>
-                <Modal>
-                    <Banner img={openItem.img}/>
-                    <HeadContent>
-                        <MainText>
-                            {openItem.name}
-                        </MainText>
-                        <Price>
-                            {openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}
-                        </Price>
-                    </HeadContent>
-                    <DescriptionContent>
-                        <Description>
-                        {openItem.description}
-                        </Description>
-                    </DescriptionContent>
-                    <OptionContent>
-                        <OptionalItems>
-                            
-                        </OptionalItems>
-                    </OptionContent>
-                    <Footer>
-                        <ButtonAddItem className="button-add" onClick={closeModal}>
-                            Добавить в корзину
-                        </ButtonAddItem>
-                    </Footer>
-                </Modal>
-            </Overlay>
-        )
+    const order = {
+        ...openItem
     };
+
+    const addToOrder = (event) => {
+        setOrders([...orders, order]);
+        closeModal(event);
+    }
+
+    return (
+        <Overlay id="ModalItemOverlay" onClick={closeModal}>
+            <Modal>
+                <Banner img={openItem.img}/>
+                <HeadContent>
+                    <MainText>
+                        {openItem.name}
+                    </MainText>
+                    <Price>
+                        {openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}
+                    </Price>
+                </HeadContent>
+                <DescriptionContent>
+                    <Description>
+                    {openItem.description}
+                    </Description>
+                </DescriptionContent>
+                <OptionContent>
+                    <OptionalItems>
+                        
+                    </OptionalItems>
+                </OptionContent>
+                <Footer>
+                    <ButtonAddItem className="button-add" onClick={addToOrder}>
+                        Добавить в корзину
+                    </ButtonAddItem>
+                </Footer>
+            </Modal>
+        </Overlay>
+    )
 };
