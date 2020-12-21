@@ -59,8 +59,8 @@ const listenScrollEvent = e => {
 // COMPONENT
 
 
-export const NavBar = ({ scrollPosition, setScrollPosition, setCartOpened }) => (
-    <NavBarStyled onClick={() => listenScrollEvent()}>
+export const NavBar = ({ setCartOpened }) => (
+    <NavBarStyled >
         <Logo href="#0">
             <img src={logoImg} alt="logo"/>
         </Logo>

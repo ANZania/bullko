@@ -34,20 +34,25 @@ const HeadContent = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 30px;
+    padding: 20px 30px;
     font-weight: 400;
     font-size: 30px;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, .1);
 `;
 
 const OrderContent = styled.div`
-    flex-grow: 1;    
-    padding: 30px 30px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 10px;
 `;
 
 const OrderList = styled.ul`
-    height: 70%; 
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: visible;
 `;
 
@@ -85,12 +90,6 @@ export const Cart = ({  isCartOpened, setCartOpened }) => {
                     </HeadContent>
                     <OrderContent>
                         <OrderList>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                            <OrderListItem/>
-                            <OrderListItem/>
                             <OrderListItem/>
                             <OrderListItem/>
                             <OrderListItem/>

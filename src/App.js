@@ -6,22 +6,23 @@ import { Footer } from './Components/Footer';
 import { ModalItem } from './Components/ModalItem';
 import { Cart } from './Components/Cart';
 import { GlobalStyle } from './Components/GlobalStyle';
+import { useOpenItem } from './Components/useOpenItem';
+import { useCartOpen } from './Components/useCartOpen';
 
 
 function App() {
 
-  const [openItem, setOpenItem] = React.useState(null);
-  const [isCartOpened, setCartOpened] = React.useState(null);
-  const [scrollPosition, setScrollPosition] = React.useState(null);
+  const openItem = useOpenItem();
+  const openCart = useCartOpen();
 
   return (
     <>
       <GlobalStyle/>
-      <Cart isCartOpened={isCartOpened} setCartOpened={setCartOpened}/>
-      <ModalItem openItem={openItem} setOpenItem={setOpenItem}/>
-      <NavBar scrollPosition={scrollPosition} setScrollPosition={setScrollPosition} setCartOpened={setCartOpened}/>
+      <Cart {...openCart}/>
+      <ModalItem {...openItem}/>
+      <NavBar {...openCart}/>
       <Promo/>
-      <Menu setOpenItem={setOpenItem}/>
+      <Menu {...openItem}/>
       <Footer/>
     </>
   );
