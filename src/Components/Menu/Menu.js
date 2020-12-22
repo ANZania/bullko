@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DBMenu from './DB';
+import DBMenu from '../DB';
 import { ItemList } from './ItemList';
 
 

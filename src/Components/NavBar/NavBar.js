@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import logoImg from '../img/logo.svg';
-import personImg from '../img/person.svg';
-import cartImg from '../img/cart.svg';
+import logoImg from '../../img/logo.svg';
+import personImg from '../../img/person.svg';
+import cartImg from '../../img/cart.svg';
 
 
 // STYLES 
@@ -47,15 +47,6 @@ const LinkImg = styled.div`
     padding: 0px 10px;
 `;
  
-const listenScrollEvent = e => {
-    
-    if (window.scrollY > 400) {
-        NavBarStyled.componentStyle.rules += `background-color: 'yellow';`;
-    } else {
-        NavBarStyled.style = {backgroundColor: 'yellow'};
-    }
-}
-
 // COMPONENT
 
 

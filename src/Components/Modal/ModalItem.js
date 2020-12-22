@@ -1,7 +1,7 @@
 import React from 'react';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
-import { ButtonAddItem } from '../Components/ButtonAddItem';
+import { ButtonAddItem } from '../Styled/ButtonAddItem';
 
 const AnimationFadeIn = keyframes`${fadeIn}`;
 

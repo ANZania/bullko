@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Delete from '../img/delete.png';
+import Delete from '../../img/delete.png';
 
 const OrderListItemBlock = styled.li`
     margin-bottom: 15px; 

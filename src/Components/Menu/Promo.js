@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import promoImg from '../img/promoImg.png';
-import wave from '../img/wave.svg';
+import promoImg from '../../img/promoImg.png';
+import wave from '../../img/wave.svg';
 
 
 // STYLES

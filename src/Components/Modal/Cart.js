@@ -1,8 +1,8 @@
 import React from 'react';
 import { slideInRight } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
-import { ButtonAddItem } from '../Components/ButtonAddItem';
-import { OrderListItem } from '../Components/OrderListItem';
+import { ButtonAddItem } from '../Styled/ButtonAddItem';
+import { OrderListItem } from '../Order/OrderListItem';
 
 const Animation = keyframes`${slideInRight}`;
 

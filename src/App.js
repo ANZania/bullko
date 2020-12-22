@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavBar } from './Components/NavBar';
-import { Promo } from './Components/Promo';
-import { Menu } from './Components/Menu';
-import { Footer } from './Components/Footer';
-import { ModalItem } from './Components/ModalItem';
-import { Cart } from './Components/Cart';
-import { GlobalStyle } from './Components/GlobalStyle';
+import { NavBar } from './Components/NavBar/NavBar';
+import { Promo } from './Components/Menu/Promo';
+import { Menu } from './Components/Menu/Menu';
+import { Footer } from './Components/Footer/Footer';
+import { ModalItem } from './Components/Modal/ModalItem';
+import { Cart } from './Components/Modal/Cart';
+import { GlobalStyle } from './Components/Styled/GlobalStyle';
 import { useOpenItem } from './Components/Hooks/useOpenItem';
 import { useCartOpen } from './Components/Hooks/useCartOpen';
 import { useOrders } from './Components/Hooks/useOrders';
