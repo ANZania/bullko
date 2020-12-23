@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {addRubSign} from '../Functions/addRubSign';
 
 
 // STYLES 
@@ -58,7 +59,7 @@ export const ItemList = ({ itemList, setOpenItem }) => (
                 img={item.img}
                 onClick={() => setOpenItem(item)}>
                 <ItemName>{item.name}</ItemName>
-                <ItemPrice>{item.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}</ItemPrice>
+                <ItemPrice>{addRubSign(item.price)}</ItemPrice>
 
             </Item>
         ))}

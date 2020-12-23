@@ -5,6 +5,7 @@ import { ButtonAddItem } from '../Styled/ButtonAddItem';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
 import { TotalPrice } from './TotalPrice';
+import { addRubSign } from '../Functions/addRubSign';
 
 const AnimationFadeIn = keyframes`${fadeIn}`;
 
@@ -125,7 +126,7 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
                         {openItem.name}
                     </MainText>
                     <Price>
-                        {openItem.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}
+                        {addRubSign(openItem.price)}
                     </Price>
                 </HeadContent>
                 <DescriptionContent>

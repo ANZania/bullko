@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Delete from '../../img/delete.png';
-import { priceCounter } from './PriceCounter';
+import { addRubSign } from '../Functions/addRubSign';
+import { countPrice } from '../Functions/countPrice';
 
 const OrderListItemBlock = styled.li`
     margin-bottom: 15px; 
@@ -51,7 +52,7 @@ export const OrderListItem = ({ order }) => (
         <ItemWrapper>
             <span>{ order.name }</span>
             <span>{ order.count }</span>
-            <span>{ priceCounter( order ).toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'}) }</span>
+            <span>{ addRubSign(countPrice( order )) }</span>
         </ItemWrapper>
         <DeleteIcon/>
     </OrderListItemBlock>

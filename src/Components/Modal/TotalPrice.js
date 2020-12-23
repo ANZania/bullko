@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { priceCounter } from '../Order/PriceCounter';
+import { addRubSign } from '../Functions/addRubSign';
+import { countPrice } from '../Functions/countPrice';
 
 const TotalPriceWrapper = styled.div`
     width: 200px;
@@ -36,7 +37,7 @@ export function TotalPrice( order ) {
             <span>Стоимость </span>
 
             <Price>
-                <p>{priceCounter( order ).toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'})}</p>
+                <p>{addRubSign(countPrice( order ))}</p>
             </Price>
         </TotalPriceWrapper>
     )

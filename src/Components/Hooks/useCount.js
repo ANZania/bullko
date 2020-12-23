@@ -6,6 +6,7 @@ export function useCount() {
     const onChange = (event) => {
         if ((event.target.value >= 1) && (Number.isInteger(event.target.value))) {
             setCount(event.target.value);
+            
         }
     };
 

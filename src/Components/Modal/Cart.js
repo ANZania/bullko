@@ -3,6 +3,8 @@ import { slideInRight } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import { ButtonAddItem } from '../Styled/ButtonAddItem';
 import { OrderListItem } from '../Order/OrderListItem';
+import { countPrice } from '../Functions/countPrice';
+import { addRubSign } from '../Functions/addRubSign';
 
 const Animation = keyframes`${slideInRight}`;
 
@@ -76,6 +78,8 @@ const Total = styled.div`
 
 export const Cart = ({  isCartOpened, setCartOpened, orders }) => {
 
+    const totalPriceCount = orders.reduce(( result, order ) => (countPrice(order) + result), 0)
+
     const closeModal = (event) => {
         if (event.target.id === "CartOverlay") {
             setCartOpened(null);
@@ -105,7 +109,7 @@ export const Cart = ({  isCartOpened, setCartOpened, orders }) => {
                             </EmptyOrderList>}        
                         <Total>
                             <span>Итого: </span>
-                            <span>5 555 р</span>
+                            <span>{addRubSign(totalPriceCount)}</span>
                         </Total>
                     </OrderContent>
                     <Footer>
