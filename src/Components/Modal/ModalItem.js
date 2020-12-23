@@ -2,6 +2,8 @@ import React from 'react';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import { ButtonAddItem } from '../Styled/ButtonAddItem';
+import { CountItem } from './CountItem';
+import { useCount } from '../Hooks/useCount';
 
 const AnimationFadeIn = keyframes`${fadeIn}`;
 
@@ -77,11 +79,13 @@ const Footer = styled.section`
     display: flex;
     padding: 0 30px;
     height: auto;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 `;
 
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
+
+    const counter = useCount();
 
     const closeModal = (event) => {
         if (event.target.id === "ModalItemOverlay") {
@@ -125,6 +129,7 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
                     </OptionalItems>
                 </OptionContent>
                 <Footer>
+                    <CountItem {...counter}/>
                     <ButtonAddItem className="button-add" onClick={addToOrder}>
                         Добавить в корзину
                     </ButtonAddItem>

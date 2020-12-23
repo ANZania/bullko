@@ -102,8 +102,7 @@ export const Cart = ({  isCartOpened, setCartOpened, orders }) => {
                             </OrderList> :
                             <EmptyOrderList>
                                 Список заказов пуст
-                            </EmptyOrderList>}
-        
+                            </EmptyOrderList>}        
                         <Total>
                             <span>Итого: </span>
                             <span>5 555 р</span>
