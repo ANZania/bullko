@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { priceCounter } from '../Order/PriceCounter';
 
 const TotalPriceWrapper = styled.div`
     width: 200px;
@@ -26,7 +27,7 @@ const Price = styled.section`
     }
 `;
 
-const priceCounter = order => order.price * order.count;
+
 
 export function TotalPrice( order ) {
 

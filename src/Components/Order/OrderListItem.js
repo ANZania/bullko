@@ -1,17 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import Delete from '../../img/delete.png';
+import { priceCounter } from './PriceCounter';
 
 const OrderListItemBlock = styled.li`
     margin-bottom: 15px; 
     padding: 10px 10px;
     min-height: 50px;
     width: 98%;
+    border-radius: 5px;    
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, .1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 5px;    
-    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, .1);
+`;
+
+const ItemWrapper = styled.section`
+    width: 80%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 const DeleteIcon = styled.button`
@@ -40,9 +48,11 @@ const DeleteIcon = styled.button`
 
 export const OrderListItem = ({ order }) => (
     <OrderListItemBlock>
-        <span>{ order.name }</span>
-        <span>2</span>
-        <span>{ order.price.toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'}) }</span>
+        <ItemWrapper>
+            <span>{ order.name }</span>
+            <span>{ order.count }</span>
+            <span>{ priceCounter( order ).toLocaleString('ru-RU', {style: 'currency', currency: 'RUB'}) }</span>
+        </ItemWrapper>
         <DeleteIcon/>
     </OrderListItemBlock>
 );
