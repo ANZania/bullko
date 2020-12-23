@@ -4,7 +4,7 @@ const ButtonAddItem = styled.button`
     background-color: #fff;
     color: #000;
     height: 50px;
-    width: 160px;
+    width: 220px;
     border-radius: 5px;
     outline: none;
 
@@ -13,7 +13,7 @@ const ButtonAddItem = styled.button`
     &:hover { 
         border-color: #000000;
         color: #fff;
-        box-shadow: inset 13em 0 0 0 rgba(0, 0, 0, 1);
+        box-shadow: inset 18em 0 0 0 rgba(0, 0, 0, 1);
     };
 
     &:active {

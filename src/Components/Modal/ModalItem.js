@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components';
 import { ButtonAddItem } from '../Styled/ButtonAddItem';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
+import { TotalPrice } from './TotalPrice';
 
 const AnimationFadeIn = keyframes`${fadeIn}`;
 
@@ -83,6 +84,14 @@ const Footer = styled.section`
     align-items: center;
 `;
 
+const ButtonWrapper = styled.div`
+    display: flex;
+    padding: 30px 30px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+`;
+
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
     const counter = useCount();
@@ -98,7 +107,8 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
     };
 
     const order = {
-        ...openItem
+        ...openItem,
+        count: counter.count
     };
 
     const addToOrder = (event) => {
@@ -130,10 +140,13 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
                 </OptionContent>
                 <Footer>
                     <CountItem {...counter}/>
-                    <ButtonAddItem className="button-add" onClick={addToOrder}>
+                    <TotalPrice {...order}/>
+                </Footer>
+                <ButtonWrapper>
+                    <ButtonAddItem className="button-add" onClick={addToOrder} >
                         Добавить в корзину
                     </ButtonAddItem>
-                </Footer>
+                </ButtonWrapper>
             </Modal>
         </Overlay>
     )

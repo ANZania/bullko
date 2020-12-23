@@ -19,7 +19,7 @@ const CountBox = styled.div`
 
     display: flex;
     flex-direction: row;
-    justify-content: space-space-between;
+    justify-content: space-between;
 `;
 
 const CountInput = styled.input`
