@@ -31,12 +31,22 @@ const Modal = styled.div`
     overflow: hidden;
 `;
 
-const Banner = styled.div`
+const BannerWrapper = styled.div`
     height: 200px;
     width: 100%;
-    background-image: url(${({img}) => img});
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
+`;
+
+const Banner = styled.img`
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease-out;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all 0.5s ease-out;
+    }
 `;
 
 const HeadContent = styled.section`
@@ -89,7 +99,7 @@ const ButtonWrapper = styled.div`
     display: flex;
     padding: 30px 30px;
     height: auto;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 `;
 
@@ -120,7 +130,9 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
     return (
         <Overlay id="ModalItemOverlay" onClick={closeModal}>
             <Modal>
-                <Banner img={openItem.img}/>
+                <BannerWrapper>
+                    <Banner src={openItem.img}/>
+                </BannerWrapper>
                 <HeadContent>
                     <MainText>
                         {openItem.name}
