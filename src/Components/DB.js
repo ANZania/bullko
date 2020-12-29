@@ -6,7 +6,7 @@ const DBMenu = {
             "img": "/Menu/Burgers/burger1.png",
             "id": 1,
             "price": 319,
-            "toppings": [
+            "choices": [
                 "Бекон",
                 "Кетчуп",
                 "Сыр Чеддер",
@@ -22,7 +22,7 @@ const DBMenu = {
             "img": "/Menu/Burgers/burger2.png",
             "id": 2,
             "price": 249,
-            "toppings": [
+            "choices": [
                 "Бекон",
                 "Красный лук",
                 "Свекла",
@@ -36,7 +36,7 @@ const DBMenu = {
             "img": "/Menu/Burgers/burger3.png",
             "id": 3,
             "price": 329,
-            "toppings": [
+            "choices": [
                 "Бекон",
                 "Халапеньо",
                 "Кетчуп",
@@ -49,7 +49,7 @@ const DBMenu = {
             "img": "/Menu/Burgers/burger4.png",
             "id": 4,
             "price": 479,
-            "toppings": [
+            "choices": [
                 "Болгарский перец",
                 "Халапеньо",
                 "Сыр Гауда",
@@ -62,7 +62,7 @@ const DBMenu = {
             "img": "/Menu/Burgers/burger5.png",
             "id": 5,
             "price": 237,
-            "toppings": [
+            "choices": [
                 "Кетчуп",
                 "Сыр Чеддер",
                 "Красный лук",
@@ -76,7 +76,7 @@ const DBMenu = {
             "img": "/Menu/Burgers/burger6.png",
             "id": 6,
             "price": 239,
-            "toppings": [
+            "choices": [
                 "Сыр Чеддер",
                 "Болгарский перец",
                 "Огурцы",
@@ -90,7 +90,7 @@ const DBMenu = {
             "img": "/Menu/Burgers/burger7.png",
             "id": 6,
             "price": 299,
-            "toppings": [
+            "choices": [
                 "Сыр Чеддер",
                 "Бекон",
                 "Красный лук",
@@ -105,7 +105,7 @@ const DBMenu = {
             "img": "/Menu/Burgers/burger8.png",
             "id": 6,
             "price": 315,
-            "toppings": [
+            "choices": [
                 "Сыр Чеддер",
                 "Красный лук",
                 "Огурцы",
@@ -119,7 +119,7 @@ const DBMenu = {
             "img": "/Menu/Burgers/burger9.png",
             "id": 6,
             "price": 199,
-            "toppings": [
+            "choices": [
                 "Сыр тофу",
                 "Ананас",
                 "Красный лук",
