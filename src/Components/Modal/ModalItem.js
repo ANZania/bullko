@@ -4,7 +4,9 @@ import styled, { keyframes } from 'styled-components';
 import { ButtonAddItem } from '../Styled/ButtonAddItem';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
+import { useOptions } from '../Hooks/useOptions';
 import { TotalPrice } from './TotalPrice';
+import { Options } from './Options';
 import { addRubSign } from '../Functions/addRubSign';
 
 const AnimationFadeIn = keyframes`${fadeIn}`;
@@ -69,8 +71,10 @@ const Price = styled.h2`
 `;
 
 const DescriptionContent = styled.section`
-    padding: 0px 30px;
-    height: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    max-height: 100px;
     overflow: hidden;
 `;
 
@@ -106,6 +110,7 @@ const ButtonWrapper = styled.div`
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
     const counter = useCount();
+    const options = useOptions(openItem);
 
     const closeModal = (event) => {
         if (event.target.id === "ModalItemOverlay") {
@@ -119,7 +124,8 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
     const order = {
         ...openItem,
-        count: counter.count
+        count: counter.count,
+        options: options.options
     };
 
     const addToOrder = (event) => {
@@ -147,9 +153,7 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
                     </Description>
                 </DescriptionContent>
                 <OptionContent>
-                    <OptionalItems>
-                        
-                    </OptionalItems>
+                    <Options {...options}/>
                 </OptionContent>
                 <Footer>
                     <CountItem {...counter}/>
