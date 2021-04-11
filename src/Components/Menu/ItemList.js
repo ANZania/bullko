@@ -7,26 +7,42 @@ import {addRubSign} from '../Functions/addRubSign';
 
 
 const ItemListStyled = styled.ul`
-    padding-top: 26px;
+    padding-top: 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 `;
 
 const Item = styled.li`
-    margin-top: 25px;
+  position: relative;
+    margin-top: 24px;
     width: 32%;
     height: 190px;
     transition: 0.5s;
     background-size: cover;
     background-image: ${(props) => `url(${props.img})`};
-    filter: brightness(0.7);
     border-radius: 5px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(198, 0, 0, 0) 0%, rgba(198, 0, 0, 0.35) 72.92%, rgba(198, 0, 0, 0.65) 100%);
+      border-radius: 5px;
+      opacity: 0;
+      transition-duration: 0.5s;
+    }
     &:hover {
-        filter: brightness(1);
         transition-duration: 0.5s;
-        transform: scale(0.9, 0.9);
+        transform: scale(0.975, 0.975);
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+      &:before {
+        transition-duration: 0.5s;
+        opacity: 100%;
+        
+      }
     }
 `;
 

@@ -17,7 +17,7 @@ const Overlay = styled.div`
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .7);
     z-index: 20;
     display: flex;
     justify-content: center;
@@ -31,6 +31,9 @@ const Modal = styled.div`
     background-color: #ffffff;
     border-radius: 5px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 `;
 
 const BannerWrapper = styled.div`
@@ -102,15 +105,16 @@ const Footer = styled.section`
 const ButtonWrapper = styled.div`
     display: flex;
     padding: 30px 30px;
-    height: auto;
+    flex-grow: 1;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
 `;
 
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
 
-    const counter = useCount();
+    const counter = useCount(openItem.count);
     const options = useOptions(openItem);
+    const isEdit = openItem.index > -1;
 
     const closeModal = (event) => {
         if (event.target.id === "ModalItemOverlay") {
@@ -133,6 +137,11 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
         closeModal(event);
     }
 
+    const editOrder = () => {
+        const newOrders = [...orders];
+        newOrders[openItem.index] = order;
+        setOrders(newOrders);
+    }
     return (
         <Overlay id="ModalItemOverlay" onClick={closeModal}>
             <Modal>
@@ -160,8 +169,8 @@ export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {
                     <TotalPrice {...order}/>
                 </Footer>
                 <ButtonWrapper>
-                    <ButtonAddItem className="button-add" onClick={addToOrder} >
-                        Добавить в корзину
+                    <ButtonAddItem className="button-add" onClick={isEdit ? editOrder : addToOrder} >
+                        { isEdit ? 'Изменить' : 'Добавить в корзину'}
                     </ButtonAddItem>
                 </ButtonWrapper>
             </Modal>

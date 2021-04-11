@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <GlobalStyle/>
-      <Cart {...openCart} {...orders}/>
+      <Cart {...openCart} {...orders} {...openItem}/>
       { openItem.openItem && <ModalItem {...openItem} {...orders}/> }
       <NavBar {...openCart}/>
       <Promo/>

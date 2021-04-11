@@ -14,7 +14,7 @@ const Overlay = styled.div`
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .7);
     z-index: 20;
     display: flex;
     justify-content: flex-end;
@@ -43,14 +43,11 @@ const HeadContent = styled.div`
 `;
 
 const OrderContent = styled.div`
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 10px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 10px 10px 30px;
 `;
 
 const OrderList = styled.ul`
@@ -60,9 +57,9 @@ const OrderList = styled.ul`
 
 const Footer = styled.section`
     display: flex;
-    padding: 30px 30px;
-    height: auto;
-    justify-content: center;
+    height: 80px;
+    padding-left: 30px;
+    justify-content: flex-start;
     align-items: center;
 `;
 
@@ -76,7 +73,13 @@ const EmptyOrderList = styled.p`
 const Total = styled.div` 
 `;
 
-export const Cart = ({  isCartOpened, setCartOpened, orders }) => {
+export const Cart = ({  isCartOpened, setCartOpened, orders, setOrders, setOpenItem }) => {
+
+    const deleteItem = index => {
+        const newOrders = [...orders];
+        newOrders.splice( index, 1 );
+        setOrders(newOrders);
+    }
 
     const totalPriceCount = orders.reduce(( result, order ) => (countPrice(order) + result), 0)
 
@@ -86,6 +89,7 @@ export const Cart = ({  isCartOpened, setCartOpened, orders }) => {
         } else if (event.target.closest(".button-add")) {
             const timer = setTimeout(() => {
                 setCartOpened(null);
+                clearTimeout(timer);
             }, 200);
         }
     };
@@ -102,7 +106,13 @@ export const Cart = ({  isCartOpened, setCartOpened, orders }) => {
                     <OrderContent>
                         {orders.length ? 
                             <OrderList>
-                                { orders.map( order => <OrderListItem order={order}/> ) }
+                                { orders.map( (order, index) => <OrderListItem
+                                    order={order}
+                                    key={index}
+                                    index={index}
+                                    deleteItem={deleteItem}
+                                    setOpenItem={setOpenItem}
+                                /> ) }
                             </OrderList> :
                             <EmptyOrderList>
                                 Список заказов пуст

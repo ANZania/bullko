@@ -14,46 +14,90 @@ const OrderListItemBlock = styled.li`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 `;
 
 const ItemWrapper = styled.section`
-    width: 80%; 
+    width: 90%; 
     display: flex;
-    justify-content: space-between;
+    justify-content: stretch;
     align-items: center;
 `;
 
 const DeleteIcon = styled.button`
-    width: 16px;
-    height: 16px;
-    border-color: transparent;
+    width: 14px;
+    height: 14px;
     background-color: transparent;
     background-image: url(${Delete});
     background-position: center;
-    transition-duration: 0.5s;         
+    transition-duration: 0.5s;  
+    background-size: contain;
+    background-repeat: no-repeat;
     outline: none; 
-    cursor: pointer;  
+    cursor: pointer; 
+    border: none;
 
-    &:hover {
-        transform: scale(0.9, 0.9);        
+    &:hover {       
         transition-duration: 0.5s;        
         border-color: transparent;
     };
 
-    &:focus {
-        transform: scale(0.9, 0.9);        
+    &:focus {      
         transition-duration: 0.5s;
         box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, .2);
+        border: none;
     }
 `;
 
-export const OrderListItem = ({ order }) => (
-    <OrderListItemBlock>
-        <ItemWrapper>
-            <span>{ order.name }</span>
-            <span>{ order.count }</span>
-            <span>{ addRubSign(countPrice( order )) }</span>
-        </ItemWrapper>
-        <DeleteIcon/>
-    </OrderListItemBlock>
-);
+const OptionsWrapper = styled.div`
+    margin-top: 8px;
+    width: 100%;
+    height: 36px;
+    font-size: 12px;
+    font-weight: 100;
+    color: #656565;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+`;
+
+const OptionsList = styled.p`
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;
+
+export const OrderListItem = ({ order, index, deleteItem, setOpenItem }) => {
+    const getItemOptions = (options) => {
+        const optionStr = options.filter(item => item.checked).map(item => item.name).join(', ');
+        if (optionStr) {
+            return (
+                <OptionsWrapper>
+                    <p>Дополнительно: </p>
+                    <OptionsList>{optionStr}</OptionsList>
+                </OptionsWrapper>
+            )
+        } else {
+            return '';
+        }
+
+    }
+
+    return (
+        <OrderListItemBlock onClick={(event) => {
+            event.target.closest('.delete-icon') ?
+                deleteItem(index) :
+                setOpenItem({...order, index})
+        }}>
+            <ItemWrapper>
+                <span className="order-name">{order.name}</span>
+                <span className="order-count">{order.count}</span>
+                <span className="order-price">{addRubSign(countPrice(order))}</span>
+            </ItemWrapper>
+            <DeleteIcon className="delete-icon" onClick={() => { deleteItem(index) }}/>
+            {getItemOptions(order.options)}
+        </OrderListItemBlock>
+    )
+};

@@ -1,19 +1,22 @@
 import styled from 'styled-components';
 
 const ButtonAddItem = styled.button`
-    background-color: #fff;
-    color: #000;
+    background-color: #C60000;
+    color: #fff;
+    font-size: 18px;
     height: 50px;
     width: 220px;
     border-radius: 5px;
+    border-color: #C60000;
     outline: none;
 
     transition: 0.25s;
     
     &:hover { 
-        border-color: #000000;
+        background-color: #740000;
+        border-color: #740000;
         color: #fff;
-        box-shadow: inset 18em 0 0 0 rgba(0, 0, 0, 1);
+        
     };
 
     &:active {

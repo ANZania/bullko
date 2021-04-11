@@ -6,7 +6,10 @@ const getChoices =  options => options.map( (item) => ({
 }));
 
 export function useOptions( openItem ) {
-    const [ options, setOptions ] = useState(getChoices( openItem.choices ));
+    const preparedChoices = openItem.options ? openItem.options :
+        openItem.choices ? getChoices( openItem.choices ) : [];
+
+    const [ options, setOptions ] = useState(preparedChoices);
 
     const checkOptions = index => {
         setOptions( options.map((item, i) => {

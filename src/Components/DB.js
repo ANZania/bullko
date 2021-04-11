@@ -88,7 +88,7 @@ const DBMenu = {
             "name": "Классик",
             "description": "Оригинальный бургер с большим количествомм овощей и нежной говяжьей котлетой в авторском соусе.",
             "img": "/Menu/Burgers/burger7.png",
-            "id": 6,
+            "id": 7,
             "price": 299,
             "choices": [
                 "Сыр Чеддер",
@@ -103,7 +103,7 @@ const DBMenu = {
             "name": "Мексиканец",
             "description": "Супер-острый и горячий бургер! Перец Халапеньо, лист айсберга, перченый бекон и острая котлета из мраморной говядины.",
             "img": "/Menu/Burgers/burger8.png",
-            "id": 6,
+            "id": 8,
             "price": 315,
             "choices": [
                 "Сыр Чеддер",
@@ -117,7 +117,7 @@ const DBMenu = {
             "name": "Вега",
             "description": "Сочный бургер, приготовленый без продуктов животного происхождения. Постная цельнозерная булочка, морковно-тыквенная котлета, салат лолло-росса и брусничный соус.",
             "img": "/Menu/Burgers/burger9.png",
-            "id": 6,
+            "id": 9,
             "price": 199,
             "choices": [
                 "Сыр тофу",
@@ -134,7 +134,7 @@ const DBMenu = {
             "name": "Капучино",
             "description": "Горячий рождественский капучино объема стандарт (250 мл)",
             "img": "/Menu/Drinks/drink2.png",
-            "id": 1,
+            "id": 10,
             "price": 239,
             "choices": [
                 "Маршмеллоу",
@@ -147,7 +147,7 @@ const DBMenu = {
             "name": "Раф",
             "description": "Вкусовой раф объема стандарт (250 мл)",
             "img": "/Menu/Drinks/drink3.png",
-            "id": 2,
+            "id": 11,
             "price": 239,
             "choices": [
                 "Мятный сироп",
@@ -162,7 +162,7 @@ const DBMenu = {
             "name": "Клубничный милкшейк",
             "description": "Традиционный холодный молочный коктейль с кусочками клубники и умеренным содержанием сахара. Объем стандарт (250 мл)",
             "img": "/Menu/Drinks/drink1.png",
-            "id": 3,
+            "id": 12,
             "price": 187,
             "choices": [
                 "Корица",
@@ -174,7 +174,7 @@ const DBMenu = {
             "name": "Чай",
             "description": "Листовой чай объема стандарт (250 мл)",
             "img": "/Menu/Drinks/drink5.png",
-            "id": 4,
+            "id": 13,
             "price": 56,
             "choices": [
                 "Чёрный",
@@ -187,7 +187,7 @@ const DBMenu = {
             "name": "Мятный милкшейк",
             "description": "Традиционный холодный молочный коктейль с мятой и кусочками лайма. Объем стандарт (250 мл)",
             "img": "/Menu/Drinks/drink4.png",
-            "id": 5,
+            "id": 14,
             "price": 187,
             "choices": [
                 "Корица",
@@ -199,7 +199,7 @@ const DBMenu = {
             "name": "Coca-cola",
             "description": "Знаменитый лимонад объема стандарт (250 мл)",
             "img": "/Menu/Drinks/drink6.png",
-            "id": 6,
+            "id": 15,
             "price": 80,            
             "choices": [
                 
@@ -211,7 +211,7 @@ const DBMenu = {
             "name": "Картофель фри",
             "description": "60 г жареного молодого катофеля",
             "img": "/Menu/Snacks/snack1.png",
-            "id": 1,
+            "id": 16,
             "price": 87,            
             "choices": [
                 "Кисло-сладкий соус",
@@ -226,7 +226,7 @@ const DBMenu = {
             "name": "Наггетсы",
             "description": "5 наггетсов из куриной грудки в авторской панировке",
             "img": "/Menu/Snacks/snack2.png",
-            "id": 2,
+            "id": 17,
             "price": 157,                        
             "choices": [
                 "Кисло-сладкий соус",
@@ -241,7 +241,7 @@ const DBMenu = {
             "name": "Картофель по-деревенски",
             "description": "60 г жареного молодого катофеля",
             "img": "/Menu/Snacks/snack3.png",
-            "id": 3,
+            "id": 18,
             "price": 87,            
             "choices": [
                 "Кисло-сладкий соус",

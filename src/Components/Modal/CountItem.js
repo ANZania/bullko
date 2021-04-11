@@ -42,15 +42,26 @@ const CountInput = styled.input`
 
 const ButtonCount = styled.button`
     flex-grow: 0.3;
-    background-color: #0000;
+    background-color: #C60000;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border-color: #C60000;
 
     outline: none;
     transition: 0.25s;
     
-    &:hover { 
-        background-color: #000;
-        color: #fff;
+    &:hover {
+      background-color: #740000;
+      border-color: #740000;
+      color: #fff;
     };
+  
+    &:disabled {
+      background-color: #c4c4c4;
+      border-color: #c4c4c4;
+      color: #fff;
+    }
 
     &:active {
         transform: scale(0.95, 0.95);

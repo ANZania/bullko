@@ -10,8 +10,7 @@ const OptionItems = styled.div`
 `;
 
 const OptionLabel = styled.label`
-    display: flex;
-    
+    display: flex;    
 `;
 
 const OptionCheckbox = styled.input`

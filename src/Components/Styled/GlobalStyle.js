@@ -16,13 +16,15 @@ html {
 body {
   margin: 0;
   background-color: #CACACA;
-  font-family: Roboto, sans-serif;
+  font-family: Ubuntu, sans-serif;
   font-size: 20px;
   color: black
 }
+
 img {
   max-width: 100%;
   height: auto;
+  background-size: cover;
 }
 
 a {
@@ -45,5 +47,21 @@ h1, h2, h3, p {
 .promoImg {
   width: 100%;
   height: auto;
+}
+
+.order-name {
+  width: 50%;
+}
+
+.order-count {
+  width: 20%;
+  text-align: center;
+}
+
+.order-price {
+  width: auto;
+  min-width: 30%;
+  flex-grow: 1;
+  text-align: right;
 }
 `;
