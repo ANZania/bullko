@@ -22,6 +22,11 @@ const Item = styled.li`
     background-size: cover;
     background-image: ${(props) => `url(${props.img})`};
     border-radius: 5px;
+    @media screen and (max-width: 720px) {
+      width: 48%;
+      background-position: center;
+      height: 160px;
+    }
     &:before {
       content: '';
       position: absolute;
@@ -49,19 +54,23 @@ const Item = styled.li`
 const ItemName = styled.p`
     color: #ffffff;
     font-weight: 400;
-    font-size: 16;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    @media screen and (max-width: 720px) {
+      font-size: 18px;
+    }
 `;
 
 const ItemPrice = styled.p`
     color: #ffffff;
     font-weight: 100;
-    font-size: 16;
     padding-top: 5px;
     padding-left: 10px;
-    padding-right: 10px;    
+    padding-right: 10px;
+    @media screen and (max-width: 720px) {
+      font-size: 18px;
+    }
 `;
 
 

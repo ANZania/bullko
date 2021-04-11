@@ -15,6 +15,9 @@ const OrderListItemBlock = styled.li`
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    @media screen and (max-width: 720px) {
+      width: 100%;
+    }
 `;
 
 const ItemWrapper = styled.section`
@@ -22,6 +25,11 @@ const ItemWrapper = styled.section`
     display: flex;
     justify-content: stretch;
     align-items: center;
+    >span {
+      @media screen and (max-width: 720px) {
+        font-size: 18px;
+      }
+    }
 `;
 
 const DeleteIcon = styled.button`

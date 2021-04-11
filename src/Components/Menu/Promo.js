@@ -19,6 +19,11 @@ const PromoStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    @media screen and (max-width: 720px) {
+      height: 360px;
+      background-position: center top 10px;
+      background-size: 50%;
+    }
 `;
 
 const PromoText = styled.h1`
@@ -31,7 +36,10 @@ const PromoText = styled.h1`
     font-size: 56px;
     position: absolute;
     right: 60px;
-    top: -50px
+    top: -50px;
+    @media screen and (max-width: 720px) {
+      display: none;
+    }
 `;
 
 const WaveBlock = styled.div`
@@ -44,11 +52,15 @@ const WaveBlock = styled.div`
 
 const MenuText = styled.h2`
     text-align: center;
-    padding-top: 12%;
+    padding-top: 180px;
 
     color: #000000;
     font-weight: 700;
     font-size: 36px;
+    @media screen and (max-width: 720px) {
+      padding-top: 180px;
+      font-size: 28px;
+    }
 `;
 
 

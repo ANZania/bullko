@@ -16,6 +16,9 @@ const MenuStyled = styled.main`
 
 const ItemBlock = styled.div`
     width: 70%;
+    @media screen and (max-width: 720px) {
+      width: 90%;
+    }
 `;
 
 const ItemTitle = styled.h3`
@@ -25,6 +28,10 @@ const ItemTitle = styled.h3`
     color: #000000;
     font-weight: 400;
     font-size: 30px;
+    @media screen and (max-width: 720px) {
+      font-size: 22px;
+      padding-top: 4%;
+    }
 `;
 
 

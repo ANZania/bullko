@@ -22,7 +22,10 @@ const Overlay = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: 0.5s ${AnimationFadeIn};
+    animation: 0.5s ${AnimationFadeIn};    
+    @media screen and (max-width: 720px) {
+      padding-top: 36px;
+    }
 `;
 
 const Modal = styled.div`
@@ -34,12 +37,19 @@ const Modal = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    @media screen and (max-width: 720px) {
+      width: 90%;
+      height: 90%;
+    }
 `;
 
 const BannerWrapper = styled.div`
     height: 200px;
     width: 100%;
     overflow: hidden;
+    @media screen and (max-width: 720px) {
+      height: 120px;
+    }
 `;
 
 const Banner = styled.img`
@@ -47,9 +57,13 @@ const Banner = styled.img`
     width: 100%;
     object-fit: cover;
     transition: all 0.5s ease-out;
+    @media screen and (max-width: 720px) {
+      height: 100%;
+      background-position: center;
+    }
 
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.2);
         transition: all 0.5s ease-out;
     }
 `;
@@ -59,18 +73,32 @@ const HeadContent = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 720px) {
+      padding: 18px 24px;
+      width: 100%;
+      height: auto;
+      max-height: 100px;
+    }
 `;
 
 const MainText = styled.h2`
     padding-left: 30px;
     font-weight: 400;
     font-size: 30px;
+    @media screen and (max-width: 720px) {
+      padding-left: 0;
+      font-size: 24px;
+    }
 `;
 
 const Price = styled.h2`
     padding-right: 30px;
     font-weight: 400;
     font-size: 30px;
+    @media screen and (max-width: 720px) {
+      padding-right: 0;
+      font-size: 24px;
+    }
 `;
 
 const DescriptionContent = styled.section`
@@ -79,17 +107,27 @@ const DescriptionContent = styled.section`
     margin-bottom: 20px;
     max-height: 100px;
     overflow: hidden;
+    @media screen and (max-width: 720px) {
+      padding: 0 24px;
+    }
 `;
 
 const Description = styled.p`
     font-weight: 300;
     font-size: 18px;
+    @media screen and (max-width: 720px) {
+      font-size: 14px;
+    }
 `;
 
 const OptionContent = styled.section`
     padding: 0px 30px;
     height: auto;
     overflow: hidden;
+    @media screen and (max-width: 720px) {
+      padding:  0 24px;
+      width: 100%;
+    } 
 `;
 
 const OptionalItems = styled.ul``;
@@ -100,6 +138,9 @@ const Footer = styled.section`
     height: auto;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 720px) {
+        padding: 0 24px;
+    }
 `;
 
 const ButtonWrapper = styled.div`
@@ -108,6 +149,9 @@ const ButtonWrapper = styled.div`
     flex-grow: 1;
     justify-content: flex-end;
     align-items: flex-end;
+    @media screen and (max-width: 720px) {
+      padding: 0px 24px 16px;
+    }
 `;
 
 export const ModalItem = ({ openItem, setOpenItem, orders, setOrders }) => {

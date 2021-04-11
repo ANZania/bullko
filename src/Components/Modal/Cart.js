@@ -29,6 +29,10 @@ const Modal = styled.div`
     background-color: #ffffff;
     overflow: hidden;    
     animation: 0.5s ${Animation};
+    @media screen and (max-width: 720px) {
+      padding-top: 36px;
+      width: 100%;
+    }
 `;
 
 const HeadContent = styled.div`
@@ -40,6 +44,12 @@ const HeadContent = styled.div`
     font-weight: 400;
     font-size: 30px;
     box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, .1);
+    @media screen and (max-width: 720px) {
+      font-size: 18px;
+      padding: 0 24px;
+      font-weight: 700;
+      height: 40px;
+    }
 `;
 
 const OrderContent = styled.div`
@@ -61,6 +71,9 @@ const Footer = styled.section`
     padding-left: 30px;
     justify-content: flex-start;
     align-items: center;
+    @media screen and (max-width: 720px) {
+      padding-left: 24px;
+    }
 `;
 
 const EmptyOrderList = styled.p`
@@ -70,7 +83,11 @@ const EmptyOrderList = styled.p`
     padding: 50px 0px;
 `;
 
-const Total = styled.div` 
+const Total = styled.div`
+  @media screen and (max-width: 720px) {
+    padding-top: 16px;
+    font-size: 18px;
+  }
 `;
 
 export const Cart = ({  isCartOpened, setCartOpened, orders, setOrders, setOpenItem }) => {
