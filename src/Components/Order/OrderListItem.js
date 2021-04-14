@@ -15,6 +15,7 @@ const OrderListItemBlock = styled.li`
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    cursor: pointer;
     @media screen and (max-width: 720px) {
       width: 100%;
     }

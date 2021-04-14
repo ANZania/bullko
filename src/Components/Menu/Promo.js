@@ -46,6 +46,9 @@ const WaveBlock = styled.div`
     width: 100%;
     height: 235px;
     background-image: url(${wave});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     position: relative;
     top: 3px;
 `;

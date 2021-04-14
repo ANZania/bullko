@@ -5,13 +5,16 @@ import { Menu } from './Components/Menu/Menu';
 import { Footer } from './Components/Footer/Footer';
 import { ModalItem } from './Components/Modal/ModalItem';
 import { Cart } from './Components/Modal/Cart';
+import { Profile } from './Components/Modal/Profile';
 import { GlobalStyle } from './Components/Styled/GlobalStyle';
 import { useOpenItem } from './Components/Hooks/useOpenItem';
 import { useCartOpen } from './Components/Hooks/useCartOpen';
 import { useOrders } from './Components/Hooks/useOrders';
 import { useAuth } from "./Components/Hooks/useAuth";
+import { useProfileOpen } from "./Components/Hooks/isProfileOpen";
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCp6QWy_Iv3YUZ-ffRt4u0b_gScjz3CjGk",
@@ -32,19 +35,40 @@ function App() {
 
   const openItem = useOpenItem();
   const openCart = useCartOpen();
+  const openProfile = useProfileOpen();
   const orders = useOrders();
 
   return (
     <>
       <GlobalStyle/>
-      <Cart {...openCart} {...orders} {...openItem}/>
-      { openItem.openItem && <ModalItem {...openItem} {...orders}/> }
-      <NavBar {...openCart} {...auth}/>
+      <Cart
+          {...openCart}
+          {...orders}
+          {...openItem}
+          {...auth}
+          firebaseDatabase = {firebase.database}
+      />
+      { openItem.openItem &&
+      <ModalItem
+          {...openItem}
+          {...orders}
+      /> }
+      <Profile
+          {...openProfile}
+          {...auth}
+      />
+      <NavBar
+          {...openCart}
+          {...auth}
+          {...openProfile}
+      />
       <Promo/>
-      <Menu {...openItem}/>
+      <Menu
+          {...openItem}
+      />
       <Footer/>
     </>
   )
-}
+};
 
 export default App

@@ -9,6 +9,7 @@ const ButtonAddItem = styled.button`
     border-radius: 5px;
     border-color: #C60000;
     outline: none;
+    cursor: pointer;
 
     transition: 0.25s;
     
@@ -22,6 +23,13 @@ const ButtonAddItem = styled.button`
     &:active {
         transform: scale(0.95, 0.95);
     };
+  
+    &:disabled {
+      background-color: #a5a5a5;
+      border-color: #626262;
+      color: #fff;
+      cursor: auto;
+    }
 
 `;
 

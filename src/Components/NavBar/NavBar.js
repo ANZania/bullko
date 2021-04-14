@@ -80,24 +80,38 @@ const LinkImg = styled.div`
 // COMPONENT
 
 
-export const NavBar = ({ isCartOpened, setCartOpened, authentication, signIn }) => {
+export const NavBar = ({ isCartOpened, setCartOpened, authentication, signIn, signOut, isProfileOpened, setProfileOpened }) => {
     const toggleCart = () => {
+        if (isProfileOpened) {
+            setProfileOpened(null);
+        };
         if (isCartOpened) {
             setCartOpened(null);
         } else {
             setCartOpened('cart');
         }
     };
+
+    const toggleProfile = () => {
+        if (isCartOpened) {
+            setCartOpened(null);
+        };
+        if (isProfileOpened) {
+            setProfileOpened(null);
+        } else {
+            setProfileOpened('profile');
+        }
+    }
     return(
         <NavBarStyled>
             <Logo href="#0"></Logo>
             <NavBarLinks>
                 { authentication ?
-                    <LinkBlock onClick={signIn}>
+                    <LinkBlock onClick={toggleProfile}>
                         <LinkImg>
                             <img src={personImg} alt="enter icon"/>
                         </LinkImg>
-                        <p className="NavBarText enterLink"><a>Выйти</a></p>
+                        <p className="NavBarText enterLink"><a>Профиль</a></p>
                     </LinkBlock> :
                     <LinkBlock onClick={signIn}>
                         <LinkImg>

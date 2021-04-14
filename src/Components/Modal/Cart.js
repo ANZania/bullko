@@ -1,12 +1,14 @@
 import React from 'react';
-import { slideInRight } from 'react-animations';
+import { slideInRight, fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import { ButtonAddItem } from '../Styled/ButtonAddItem';
 import { OrderListItem } from '../Order/OrderListItem';
 import { countPrice } from '../Functions/countPrice';
 import { addRubSign } from '../Functions/addRubSign';
+import { projection } from '../Functions/databaseProjection';
 
-const Animation = keyframes`${slideInRight}`;
+const AnimationSlide = keyframes`${slideInRight}`;
+const AnimationFade = keyframes`${fadeIn}`;
 
 const Overlay = styled.div`
     position: fixed;
@@ -28,7 +30,7 @@ const Modal = styled.div`
     height: 100%; 
     background-color: #ffffff;
     overflow: hidden;    
-    animation: 0.5s ${Animation};
+    animation: 0.5s ${AnimationSlide};
     @media screen and (max-width: 720px) {
       padding-top: 36px;
       width: 100%;
@@ -90,7 +92,32 @@ const Total = styled.div`
   }
 `;
 
-export const Cart = ({  isCartOpened, setCartOpened, orders, setOrders, setOpenItem }) => {
+export const Cart = ({
+                         isCartOpened, setCartOpened,
+                         orders, setOrders,
+                         setOpenItem,
+                         authentication, signIn,
+                         firebaseDatabase
+                     }) => {
+
+    const database = firebaseDatabase();
+
+    const rulesDatabase = {
+        name: ['name'],
+        price: ['price'],
+        count: ['count'],
+        options: ['options', item => item ? item.filter(obj => obj.checked).map(obj => obj.name) : 'no options']
+    }
+
+    const sendOrder = () => {
+        const newOrder = orders.map(projection(rulesDatabase));
+        database.ref('orders').push().set({
+            'customerName': authentication.displayName,
+            'customerEmail': authentication.email,
+            'order': newOrder
+        })
+        setOrders([]);
+    }
 
     const deleteItem = index => {
         const newOrders = [...orders];
@@ -104,10 +131,15 @@ export const Cart = ({  isCartOpened, setCartOpened, orders, setOrders, setOpenI
         if (event.target.id === "CartOverlay") {
             setCartOpened(null);
         } else if (event.target.closest(".button-add")) {
-            const timer = setTimeout(() => {
-                setCartOpened(null);
-                clearTimeout(timer);
-            }, 200);
+            if (authentication) {
+                sendOrder();
+                const timer = setTimeout(() => {
+                    setCartOpened(null);
+                    clearTimeout(timer);
+                }, 200);
+            } else {
+                signIn(authentication);
+            }
         }
     };
 
@@ -140,9 +172,14 @@ export const Cart = ({  isCartOpened, setCartOpened, orders, setOrders, setOpenI
                         </Total>
                     </OrderContent>
                     <Footer>
-                        <ButtonAddItem className="button-add" onClick={closeModal}>
-                            Оформить заказ
-                        </ButtonAddItem>
+                        { orders.length ?
+                                <ButtonAddItem disabled={false} className="button-add">
+                                    Оформить заказ
+                                </ButtonAddItem> :
+                                <ButtonAddItem disabled={true} className="button-add">
+                                    Оформить заказ
+                                </ButtonAddItem>
+                        }
                     </Footer>
                 </Modal>
             </Overlay>
