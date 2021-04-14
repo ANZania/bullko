@@ -12,6 +12,7 @@ import { useCartOpen } from './Components/Hooks/useCartOpen';
 import { useOrders } from './Components/Hooks/useOrders';
 import { useAuth } from "./Components/Hooks/useAuth";
 import { useProfileOpen } from "./Components/Hooks/isProfileOpen";
+import { useTitle } from "./Components/Hooks/useTitle";
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
@@ -37,6 +38,8 @@ function App() {
   const openCart = useCartOpen();
   const openProfile = useProfileOpen();
   const orders = useOrders();
+
+  useTitle(openItem.openItem);
 
   return (
     <>
