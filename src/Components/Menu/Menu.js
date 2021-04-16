@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ItemList } from './ItemList';
-import { useFetch } from "../Hooks/useFetch";
+// import { useFetch } from "../Hooks/useFetch";
 
 // STYLES 
 
@@ -50,9 +50,7 @@ const PreloaderWrapper = styled.div`
 // COMPONENT
 
 
-export const Menu = ({ setOpenItem }) => {
-    const data = useFetch();
-    const DBMenu = data.response;
+export const Menu = ({ setOpenItem, DBMenu }) => {
 
     return (
         <MenuStyled>
@@ -72,11 +70,11 @@ export const Menu = ({ setOpenItem }) => {
                             <ItemList
                                 itemList={DBMenu.snacks}
                                 setOpenItem={setOpenItem} />
-                        </> : data.error ?
-                        <PreloaderWrapper>
-                            <p>Кажется, на сервере произошла ошибка...<br/>Попробуйте перезагрузить страницу</p>
-                        </PreloaderWrapper>
-                        :
+                        </> :
+                        // <PreloaderWrapper>
+                        //     <p>Кажется, на сервере произошла ошибка...<br/>Попробуйте перезагрузить страницу</p>
+                        // </PreloaderWrapper>
+                        // :
                         <PreloaderWrapper>
                             <div className="lds-facebook">
                                 <div/>

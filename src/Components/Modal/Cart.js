@@ -97,10 +97,9 @@ export const Cart = ({
                          orders, setOrders,
                          setOpenItem,
                          authentication, signIn,
-                         firebaseDatabase
+                         dataBase
                      }) => {
 
-    const database = firebaseDatabase();
 
     const rulesDatabase = {
         name: ['name'],
@@ -111,7 +110,7 @@ export const Cart = ({
 
     const sendOrder = () => {
         const newOrder = orders.map(projection(rulesDatabase));
-        database.ref('orders').push().set({
+        dataBase.ref('orders').push().set({
             'customerName': authentication.displayName,
             'customerEmail': authentication.email,
             'order': newOrder

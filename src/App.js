@@ -13,6 +13,7 @@ import { useOrders } from './Components/Hooks/useOrders';
 import { useAuth } from "./Components/Hooks/useAuth";
 import { useProfileOpen } from "./Components/Hooks/isProfileOpen";
 import { useTitle } from "./Components/Hooks/useTitle";
+import { useDB } from "./Components/Hooks/useDB";
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
@@ -38,6 +39,8 @@ function App() {
   const openCart = useCartOpen();
   const openProfile = useProfileOpen();
   const orders = useOrders();
+  const dataBase = firebase.database();
+  const DBMenu = useDB(dataBase);
 
   useTitle(openItem.openItem);
 
@@ -49,7 +52,7 @@ function App() {
           {...orders}
           {...openItem}
           {...auth}
-          firebaseDatabase = {firebase.database}
+          dataBase={dataBase}
       />
       { openItem.openItem &&
       <ModalItem
@@ -68,6 +71,7 @@ function App() {
       <Promo/>
       <Menu
           {...openItem}
+          DBMenu={DBMenu}
       />
       <Footer/>
     </>
