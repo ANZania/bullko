@@ -151,11 +151,6 @@ export const Profile = ({ isProfileOpened, setProfileOpened, authentication, sig
                                 <span>{authentication.phoneNumber || 'Не указан'}</span>
                             </p>
                             <hr/>
-                            <p className="profile-info-heading">Адрес доставки:
-                                <br/>
-                                <span>Не указан</span>
-                            </p>
-                            <hr/>
                             <p className="profile-info-heading">Заказы:
                                 <br/>
                                 <span>Вы еще не совершали заказов</span>

@@ -4,7 +4,7 @@ export const useDB = (database) => {
     const [ data, setData ] = useState(null);
 
     useEffect(() => {
-        const DBRef = database.ref('goods').on('value', snapshot => {
+        database.ref('goods').on('value', snapshot => {
             setData(snapshot.val())
         });
     }, [database]);

@@ -14,9 +14,11 @@ import { useAuth } from "./Components/Hooks/useAuth";
 import { useProfileOpen } from "./Components/Hooks/isProfileOpen";
 import { useTitle } from "./Components/Hooks/useTitle";
 import { useDB } from "./Components/Hooks/useDB";
+import { useOrderConfirm } from "./Components/Hooks/useOrderConfirm";
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import {OrderConfirm} from "./Components/Modal/OrderConfirm";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCp6QWy_Iv3YUZ-ffRt4u0b_gScjz3CjGk",
@@ -41,18 +43,28 @@ function App() {
   const orders = useOrders();
   const dataBase = firebase.database();
   const DBMenu = useDB(dataBase);
+  const orderConfirm = useOrderConfirm();
+
 
   useTitle(openItem.openItem);
 
   return (
     <>
       <GlobalStyle/>
+      { orderConfirm.openOrderConfirm &&
+          <OrderConfirm
+              {...orders}
+              {...auth}
+              {...orderConfirm}
+              dataBase={dataBase}
+          />
+      }
       <Cart
           {...openCart}
           {...orders}
           {...openItem}
           {...auth}
-          dataBase={dataBase}
+          {...orderConfirm}
       />
       { openItem.openItem &&
       <ModalItem
@@ -76,6 +88,6 @@ function App() {
       <Footer/>
     </>
   )
-};
+}
 
 export default App

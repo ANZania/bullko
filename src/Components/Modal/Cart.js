@@ -1,19 +1,17 @@
 import React from 'react';
-import { slideInRight, fadeIn } from 'react-animations';
+import { slideInRight } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import { ButtonAddItem } from '../Styled/ButtonAddItem';
 import { OrderListItem } from '../Order/OrderListItem';
 import { countPrice } from '../Functions/countPrice';
 import { addRubSign } from '../Functions/addRubSign';
-import { projection } from '../Functions/databaseProjection';
 
 const AnimationSlide = keyframes`${slideInRight}`;
-const AnimationFade = keyframes`${fadeIn}`;
 
 const Overlay = styled.div`
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .7);
@@ -45,7 +43,7 @@ const HeadContent = styled.div`
     padding: 20px 30px;
     font-weight: 400;
     font-size: 30px;
-    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, .1);
     @media screen and (max-width: 720px) {
       font-size: 18px;
       padding: 0 24px;
@@ -82,7 +80,7 @@ const EmptyOrderList = styled.p`
     font-weight: 300;
     text-align: center;
     width: 100%;
-    padding: 50px 0px;
+    padding: 50px 0;
 `;
 
 const Total = styled.div`
@@ -97,26 +95,8 @@ export const Cart = ({
                          orders, setOrders,
                          setOpenItem,
                          authentication, signIn,
-                         dataBase
+                         setOpenOrderConfirm
                      }) => {
-
-
-    const rulesDatabase = {
-        name: ['name'],
-        price: ['price'],
-        count: ['count'],
-        options: ['options', item => item ? item.filter(obj => obj.checked).map(obj => obj.name) : 'no options']
-    }
-
-    const sendOrder = () => {
-        const newOrder = orders.map(projection(rulesDatabase));
-        dataBase.ref('orders').push().set({
-            'customerName': authentication.displayName,
-            'customerEmail': authentication.email,
-            'order': newOrder
-        })
-        setOrders([]);
-    }
 
     const deleteItem = index => {
         const newOrders = [...orders];
@@ -131,7 +111,7 @@ export const Cart = ({
             setCartOpened(null);
         } else if (event.target.closest(".button-add")) {
             if (authentication) {
-                sendOrder();
+                setOpenOrderConfirm(true);
                 const timer = setTimeout(() => {
                     setCartOpened(null);
                     clearTimeout(timer);
@@ -183,5 +163,5 @@ export const Cart = ({
                 </Modal>
             </Overlay>
         )
-    };
+    }
 };
