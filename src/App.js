@@ -13,7 +13,8 @@ import { useOrders } from './Components/Hooks/useOrders';
 import { useAuth } from "./Components/Hooks/useAuth";
 import { useProfileOpen } from "./Components/Hooks/isProfileOpen";
 import { useTitle } from "./Components/Hooks/useTitle";
-import { useDB } from "./Components/Hooks/useDB";
+import { useDBMenu } from "./Components/Hooks/useDBMenu";
+import { useDBOrders } from "./Components/Hooks/useDBOrders";
 import { useOrderConfirm } from "./Components/Hooks/useOrderConfirm";
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -42,7 +43,8 @@ function App() {
   const openProfile = useProfileOpen();
   const orders = useOrders();
   const dataBase = firebase.database();
-  const DBMenu = useDB(dataBase);
+  const DBMenu = useDBMenu(dataBase);
+  const DBOrders = useDBOrders(dataBase);
   const orderConfirm = useOrderConfirm();
 
 
@@ -74,6 +76,7 @@ function App() {
       <Profile
           {...openProfile}
           {...auth}
+          DBOrders={DBOrders}
       />
       <NavBar
           {...openCart}

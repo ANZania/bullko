@@ -78,6 +78,7 @@ const OptionsList = styled.p`
     text-overflow: ellipsis;
 `;
 
+
 export const OrderListItem = ({ order, index, deleteItem, setOpenItem }) => {
     const getItemOptions = (options) => {
         const optionStr = options.filter(item => item.checked).map(item => item.name).join(', ');
@@ -91,9 +92,7 @@ export const OrderListItem = ({ order, index, deleteItem, setOpenItem }) => {
         } else {
             return '';
         }
-
     }
-
     return (
         <OrderListItemBlock onClick={(event) => {
             event.target.closest('.delete-icon') ?

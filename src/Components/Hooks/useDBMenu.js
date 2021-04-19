@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 
-export const useDB = (database) => {
-    const [ data, setData ] = useState(null);
+export const useDBMenu = (database) => {
+    const [ dataMenu, setDataMenu ] = useState(null);
 
     useEffect(() => {
         database.ref('goods').on('value', snapshot => {
-            setData(snapshot.val())
+            setDataMenu(snapshot.val())
         });
     }, [database]);
 
-    return data
+    return dataMenu
 
 }

@@ -122,21 +122,33 @@ export const OrderConfirm = ({
         name: ['name'],
         price: ['price'],
         count: ['count'],
-        options: ['options', item => item ? item.filter(obj => obj.checked).map(obj => obj.name) : 'no options']
+        options: ['options', item => item ? item.filter(obj => obj.checked).map(obj => obj.name) : 'no options'],
     }
 
     const sendOrder = () => {
         const newOrder = orders.map(projection(rulesDatabase));
+        console.log(newOrder)
+        Object.keys(newOrder).map(key => {
+            const optionsCount = newOrder[key].options.length;
+            const optionsPrice =  newOrder[key].price * 0.1 * optionsCount;
+            newOrder[key].price = newOrder[key].price * newOrder[key].count + optionsPrice;
+        })
         const customerName = document.getElementById('userName').textContent.trim();
         const customerEmail = document.getElementById('userMail').textContent.trim();
         const customerPhone = document.getElementById('userPhone').textContent.trim();
+        const currentDate = new Date().toLocaleString('ru');
+        const price = addRubSign(totalPriceCount);
+        const userID = authentication.uid;
         address = document.getElementById('userAddress').textContent.trim();
         dataBase.ref('orders').push().set({
+            'userID': userID,
             'customerName': customerName,
             'customerEmail': customerEmail,
             'customerPhone': customerPhone,
             'customerAddress': address,
-            'order': newOrder
+            'order': newOrder,
+            'date': currentDate,
+            'totalPrice': price
         })
         setOrders([]);
         setOpenOrderConfirm(false);

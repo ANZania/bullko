@@ -2,9 +2,9 @@ import React from 'react';
 import { slideInRight, fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
 import { ButtonAddItem } from '../Styled/ButtonAddItem';
+import {PreviousOrders} from "../Order/PreviosOrders";
 
 const AnimationSlide = keyframes`${slideInRight}`;
-const AnimationFade = keyframes`${fadeIn}`;
 
 const Overlay = styled.div`
     position: fixed;
@@ -43,13 +43,13 @@ const HeadContent = styled.div`
     margin-top: 60px;
     font-weight: 400;
     font-size: 30px;
-    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, .1);
     @media screen and (max-width: 720px) {
       font-size: 18px;
       padding: 0 24px;
       font-weight: 700;
       height: 40px;
-      margin-top: 0px;
+      margin-top: 0;
     }
 `;
 
@@ -85,7 +85,7 @@ const ProfileInfo = styled.section`
   width: 100%;
   max-height: 90%;
   overflow: auto;
-  >p {
+  >.profile-info-heading {
     font-size: 18px;
     padding-bottom: 5px;
     >span {
@@ -112,7 +112,7 @@ const Footer = styled.section`
     }
 `;
 
-export const Profile = ({ isProfileOpened, setProfileOpened, authentication, signIn, signOut }) => {
+export const Profile = ({ isProfileOpened, setProfileOpened, authentication, signOut, DBOrders }) => {
     const closeModal = (event) => {
         if (event.target.id === "ProfileOverlay") {
             setProfileOpened(null);
@@ -124,6 +124,17 @@ export const Profile = ({ isProfileOpened, setProfileOpened, authentication, sig
             }, 200);
         }
     };
+
+    const getOrders = () => {
+        const uid = authentication.uid;
+        let userOrderList = [];
+        for (let element in DBOrders) {
+            if (DBOrders[element].userID == uid) {
+                userOrderList.push(DBOrders[element])
+            }
+        }
+         return userOrderList
+    }
 
     if (!isProfileOpened) {
         return null
@@ -140,7 +151,6 @@ export const Profile = ({ isProfileOpened, setProfileOpened, authentication, sig
                             <UserName>{authentication.displayName}</UserName>
                         </ProfileHeadingInfo>
                         <ProfileInfo>
-                            {console.log(authentication)}
                             <p className="profile-info-heading">Адрес электронной почты:
                                 <br/>
                                 <span>{authentication.email}</span>
@@ -151,10 +161,17 @@ export const Profile = ({ isProfileOpened, setProfileOpened, authentication, sig
                                 <span>{authentication.phoneNumber || 'Не указан'}</span>
                             </p>
                             <hr/>
-                            <p className="profile-info-heading">Заказы:
+                            <div className="profile-info-heading">Заказы:
                                 <br/>
-                                <span>Вы еще не совершали заказов</span>
-                            </p>
+                                {
+                                    getOrders().length ?
+                                        <PreviousOrders
+                                            itemList={getOrders()}
+                                        /> :
+                                        <p>Вы еще не совершали заказов</p>
+                                }
+
+                            </div>
                         </ProfileInfo>
                     </InfoContent>
                     <Footer>
